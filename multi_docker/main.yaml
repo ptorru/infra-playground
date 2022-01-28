@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update all to latest version
+      apt:
+        name: "*"
+        state: latest
+    - name: install tmux
+      apt:
+        name: "tmux"
+        state: latest
+    - name: check files
+      shell: |
+        ls -la
